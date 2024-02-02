@@ -3,8 +3,11 @@ import { format } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import Search from "./_components/search";
 import BookingItem from "@/components/booking-item";
+import BarbershopItem from "./_components/barbershop-item";
+import { db } from "@/lib/prisma";
 
-export default function Home() {
+export default async function Home() {
+  const barbershops = await db.barbershop.findMany();
   return (
     <main>
       <Header />
@@ -24,6 +27,11 @@ export default function Home() {
           Agendamentos
         </p>
         <BookingItem />
+      </div>
+      <div className="mt-8 flex gap-4 overflow-x-auto px-5 [&::-webkit-scrollbar]:hidden">
+        {barbershops.map((barbershop) => (
+          <BarbershopItem key={barbershop.id} barbershop={barbershop} />
+        ))}
       </div>
     </main>
   );
