@@ -1,10 +1,7 @@
-import { Button } from "@/components/ui/button";
 import { db } from "@/lib/prisma";
 import { Barbershop, Service } from "@prisma/client";
-import { ChevronLeft, MenuIcon, PinIcon, StarIcon } from "lucide-react";
-import Image from "next/image";
-import BarbershopInfo from "./_components/barbershop-info";
-import ServiceItem from "./_components/service-item";
+import BarbershopInfo from "@/app/barbershop/[id]/_components/barbershop-info";
+import ServiceItem from "@/app/barbershop/[id]/_components/service-item";
 
 type BarbershopDetailsProps = {
   params: Barbershop & {
