@@ -9,7 +9,7 @@ import { db } from "@/lib/prisma";
 export default async function Home() {
   const barbershops = await db.barbershop.findMany();
   return (
-    <main>
+    <div>
       <Header />
       <div className="flex flex-col gap-2 p-5">
         <h2 className="text-xl font-bold">Olá Fulano</h2>
@@ -48,6 +48,6 @@ export default async function Home() {
           ))}
         </div>
       </div>
-    </main>
+    </div>
   );
 }

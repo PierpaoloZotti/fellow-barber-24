@@ -15,7 +15,7 @@ type BarbershopInfoProps = {
 const BarbershopInfo = ({ barbershop }: BarbershopInfoProps) => {
   const router = useRouter();
   const handleClick = () => {
-    router.back();
+    router.replace("/");
   };
 
   return (
@@ -37,7 +37,7 @@ const BarbershopInfo = ({ barbershop }: BarbershopInfoProps) => {
         </Button>
         <div className="flex items-center gap-x-2">
           <Sheet>
-            <SheetTrigger>
+            <SheetTrigger asChild>
               <Button
                 variant="outline"
                 size="icon"
